@@ -1,38 +1,215 @@
+* {
+
+}
+
 .App {
-  text-align: center;
+  display: flex;
+  flex-direction: row;
 }
 
 .App-logo {
   height: 40vmin;
   pointer-events: none;
+  color: #cdcd1a;
+  width: 25vmin;
 }
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+    animation: App-logo-spin infinite 4s cubic-bezier(0,0.6,1,.4);
   }
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #101b70;
   min-height: 100vh;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+}
+
+.App-logo {
+  margin: 0;
+  padding-left: 2vw;
+  height: 10vh;
+  align-items: flex-start;
 }
 
 .App-link {
   color: #61dafb;
 }
 
+.SetPics {
+  position: fixed;
+  display: flex;
+  justify-content: space-evenly;
+  padding-top: 10vh;
+  width: 100%;
+  height: 80vh;
+  background-color: orange;
+}
+
+.SetPicsCont {
+  /*In Case I need, we shall see*/
+}
+
+.MainBody {
+  width: 100%; /* Use 100% width */
+  height: 100%; /* Use 100% height */
+}
+
 @keyframes App-logo-spin {
   from {
-    transform: rotate(0deg);
+    transform-origin: center;
+    transform: rotateY(-90deg);
   }
   to {
-    transform: rotate(360deg);
+    transform-origin: center;
+    transform: rotateY(90deg);
+
   }
+}
+
+.side-container {
+  position: fixed;
+  z-index: 4;
+  display: flex;
+  height: 100vh;
+  align-items: center;
+}
+
+.sidebar {
+  background-color: #1ac4cd;
+  top: 0;
+  transform: translateX(-60px);
+  height: 100%;
+  transition: all 0.3s ease; /* Add a transition for smooth animation */
+}
+
+.sidebar-open {
+  background-color: #1ac4cd;
+  top: 0;
+  transform: translateX(0px);
+  height: 100%;
+  transition: all 0.3s ease; /* Add a transition for smooth animation */
+}
+
+.dimmer {
+  background-color: rgba(0, 0 , 0, 0.5);
+  height: 100vh;
+  width: 100vw;
+}
+
+button {
+  background-color: #fdd85d;
+  position: relative;
+  height: 5vh;
+
+/* Might need to make this a jsx style so it can always be positioned at end of sidebar regarless of width */
+
+  left: 50px;
+  top: 50%;
+  transform: translateY(-50%);
+
+  transition: all 0.3s;
+}
+
+button:hover {
+  background-color: #ffe694;
+}
+
+button:active {
+  /*transform: translate(1px, 2px);*/
+}
+
+img {
+  border-color: #1ac4cd;
+  border-style: solid;
+  border-width: 3px;
+  height: 40vh;
+}
+
+.colorBack {
+  display: flex;
+  width: 100vw;
+  height: 10vh;
+  background-color: aliceblue;
+  align-items: center;
+}
+
+h4 {
+  color: black;
+  padding-left: 2vw;
+}
+
+.hidden {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s 1s, opacity 1s linear;
+}
+
+.visible {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 1s linear;
+}
+
+.visibleInstant {
+  visibility: visible;
+  opacity: 1;
+}
+
+.hiddenInstant {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.LocationContainer {
+  position: fixed;
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+  height: 20%;
+  margin-top: 70vh;
+}
+
+.Locations {
+  width: 14%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+}
+
+.ProgressBar {
+  opacity: 0.5;
+  position: absolute;
+  width: 100%;
+  background-color: #ffffff;
+  height: 5%;
+}
+
+.ProgressBarOverlap {
+  position: absolute;
+  width: 0%;
+  background-color: #cdcd1a;
+  height: 5%;
+  margin-bottom: 43%;
+}
+
+.ProgressBarOverlapFill {
+  position: absolute;
+  width: 100%;
+  background-color: #cdcd1a;
+  height: 5%;
+  margin-bottom: 43%;
+
+  transition: width 7s linear;
+}
+
+.HalfOpacity {
+  opacity: .5;
 }
